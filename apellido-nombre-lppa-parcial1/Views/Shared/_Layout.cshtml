@@ -1,14 +1,46 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/site.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Pagina Maestra- Layout</h1>
-    @RenderBody()
+    <div id="contenedor">
+        <div id="cabecera">
+            <div id="logo">
+                <h1></h1>
+            </div>
+            <div id="buscador">
+                <form action="#" method="post">
+                    Buscar &nbsp;
+                    <input name="busqueda" type="text" />
+                </form>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div id="menu">
+            <ul id="menu_principal">
+                <li> <a href="/">Home</a> </li>
+                <li> <a href="/Home/About">About</a> </li>
+                <li>
+                    <a href="@Url.Action("Index", "Afiliado")">Afiliados</a>
+                </li>
+            </ul>
+        </div>
+        <div id="contenido">
+            <div id="principal">
+                @RenderBody()
+            </div>
+            <div id="secundario">
+                <h2> Opciones secundarias</h2>
+            </div>
+        </div>
+        <div id="pie">
+            <p> Datos de la WebSite LPPA- 2021</p>
+        </div>
+
+    </div>
 </body>
 </html>

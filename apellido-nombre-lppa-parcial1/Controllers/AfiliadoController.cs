@@ -6,14 +6,10 @@ using System.Web.Mvc;
 
 namespace apellido_nombre_lppa_parcial1.Controllers
 {
-    public class HomeController : Controller
+    public class AfiliadoController : Controller
     {
-        // GET: Home
+        // GET: Afiliado
         public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult About()
         {
             return View();
         }
