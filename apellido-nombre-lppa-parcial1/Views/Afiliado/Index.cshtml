@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Entities.Models.Afiliado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Afiliados de la Obra Social</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Afiliado", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Raw("Nombre y Apellido")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuit)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cuit)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
