@@ -118,9 +118,19 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AfiliadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Domain\Data\AfiliadoDbContext.cs" />
+    <Compile Include="Domain\Data\BaseDataService.cs" />
+    <Compile Include="Domain\Data\IDataService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106072322171_InitialCreate.cs" />
+    <Compile Include="Migrations\202106072322171_InitialCreate.designer.cs">
+      <DependentUpon>202106072322171_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Afiliado.cs" />
+    <Compile Include="Models\IdentityBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +150,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Domain\Business\" />
-    <Folder Include="Domain\Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Afiliado\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202106072322171_InitialCreate.resx">
+      <DependentUpon>202106072322171_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
