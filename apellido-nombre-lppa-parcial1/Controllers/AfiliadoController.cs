@@ -44,10 +44,67 @@ namespace apellido_nombre_lppa_parcial1.Controllers
 
                     Console.WriteLine("Gestor de la Exception...");
                 }
-                
+
             }
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var model = db.GetById(id);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Afiliado model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Update(model);
+                    return RedirectToAction("Index");
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Gestor de la Exception...");
+                }
+
+            }
+            return View(model);
+        }
+
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            var model = db.GetById(id);
+            if (model == null)
+            {
+                return HttpNotFound();
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Afiliado model)
+        {
+            try
+            {
+                db.Delete(model.Id);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Gestor de la Exception...");
+            }
+            return View(model);
+        }
     }
 }
